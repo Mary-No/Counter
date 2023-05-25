@@ -1,0 +1,15 @@
+.Settings{
+    width: 400px;
+    height: 500px;
+    border: 4px var(--main-color) solid;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+.container{
+    width: 360px;
+    height: 350px;
+    border: 4px var(--main-color) solid;
+    border-radius: 20px;
+    margin: 20px auto;
+
+}

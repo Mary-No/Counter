@@ -1,0 +1,21 @@
+.Input{
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.inputTitle{
+    color: var(--main-color);
+    font-size: 28px;
+}
+.Input input{
+    width: 90%;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    padding: 0px 16px;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: var(--bg-color);
+
+}

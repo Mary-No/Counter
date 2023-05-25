@@ -1,0 +1,32 @@
+.Counter{
+    width: 400px;
+    height: 500px;
+    border: 4px var(--main-color) solid;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+.counterValue{
+    width: 340px;
+    height: 280px;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    margin: 30px auto 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 140px;
+    font-weight: 600;
+}
+.controlButtons{
+    border: 4px var(--main-color) solid;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    border-radius: 20px;
+    width: 280px;
+    margin: 30px auto 10px auto;
+}
+.error{
+    color: var(--error-color);
+}

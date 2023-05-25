@@ -1,0 +1,25 @@
+.counterIncrement{
+    width: 100px;
+}
+.counterReset{
+    width: 140px;
+
+}
+.counterSet{
+    width: 100px;
+    margin: 0 auto;
+}
+.controlButton{
+    height: 60px;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--bg-color);
+    background-color: var(--main-color);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.controlButton:hover{
+    background-color: var(--hover-btn-color);
+}
