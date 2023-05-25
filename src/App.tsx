@@ -3,49 +3,64 @@ import './App.css';
 import Counter from './components/Counter/Counter';
 import Settings from './components/Settings/Settings';
 
-export type DataCounterType = {
-    startValue: number,
-    maxValue: number,
-    currentValue: number
-}
+export const START_VALUE = 0
+export const MAX_VALUE = 4
+
 
 function App() {
-    let [counter, setCounter] = useState<DataCounterType>(
-        {
-            startValue : 0,
-            maxValue: 5,
-            currentValue: 0
-        }
-    )
-    let [error, setError] = useState('');
+    let [currentValue, setCurrentValue] = useState(START_VALUE)
+    let [startValue, setStartValue] = useState(START_VALUE)
+    let [maxValue, setMaxValue] = useState(MAX_VALUE)
 
-    function limit(){
-        if(counter.currentValue === counter.maxValue){
-            setError(String(counter.currentValue))
-        }else if(counter.startValue<0){
-            setError('Incorrect value')
-        }else if(counter.startValue===counter.maxValue){
-            setError('Incorrect value')
-        }
-    }
-function incrementCurrentValue(currentValue:number, maxValue: number){
-            counter.currentValue = currentValue + 1;
-            setCounter({...counter})
-            limit()
 
-}
-function resetCurrentValue(){
-        counter.currentValue = counter.startValue;
-        setCounter({...counter})
-        setError('')
+    let [error, setError] = useState(false);
+
+    function errorHandler(flag:boolean) {
+        setError(flag)
     }
 
-  return (
-    <div className="App">
-        <Settings  counter={counter}/>
-        <Counter error={error} incrementCurrentValue={incrementCurrentValue} resetCurrentValue={resetCurrentValue} counter={counter}/>
-    </div>
-  );
+    function incrementCurrentValue(value: number) {
+        setCurrentValue(value + 1)
+    }
+
+    function resetCurrentValue() {
+        setCurrentValue(startValue)
+    }
+
+    function setLimitValues(min: number, max: number) {
+        setStartValue(min)
+        setMaxValue(max)
+        setCurrentValue(startValue)
+    }
+
+    function changeInputValue(type: string, value: number) {
+        if (type === 'max') {
+            setMaxValue(value)
+        } else {
+            setStartValue(value);
+        }
+    }
+
+    return (
+
+        <div className="App">
+
+            <Settings errorHandler={errorHandler}
+                      setLimitValues={setLimitValues}
+                      changeInputValue={changeInputValue}
+                      currentValue={currentValue}
+                      startValue={startValue}
+                      maxValue={maxValue}
+                      error={error}/>
+
+            <Counter incrementCurrentValue={incrementCurrentValue}
+                     resetCurrentValue={resetCurrentValue}
+                     currentValue={currentValue}
+                     startValue={startValue}
+                     maxValue={maxValue}
+                     error={error}/>
+        </div>
+    );
 }
 
 export default App;

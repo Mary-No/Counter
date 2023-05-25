@@ -1,25 +1,45 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './Counter.module.css';
 import ControlButton from '../ControlButton/ControlButton';
-import {DataCounterType} from '../../App';
 import {Simulate} from 'react-dom/test-utils';
 import error = Simulate.error;
 
 type CounterType = {
-    counter: DataCounterType,
-    incrementCurrentValue?:(currentValue:number, maxValue: number)=>void
-    resetCurrentValue?:()=>void
-    error: string
+    currentValue: number
+    startValue: number
+    maxValue: number
+    incrementCurrentValue?: (currentValue: number) => void
+    resetCurrentValue?: () => void
+    error: boolean
 }
-function Counter(props:CounterType) {
 
+function Counter(props: CounterType) {
 
     return (
         <div className={s.Counter}>
-            <div className={props.error ? s.error + ' ' + s.counterValue: s.counterValue}>{props.error? props.error : props.counter.currentValue}</div>
+
+            {/*className={props.error ? s.error + ' ' + s.counterValue : s.counterValue}*/}
+            <div className={props.error ?  s.error + ' ' + s.counterValue : s.counterValue}>
+
+                {props.error ? 'Incorrect value!': props.currentValue}
+                {/*{props.error ? props.error : props.currentValue}*/}
+            </div>
+
             <div className={s.controlButtons}>
-                <ControlButton currentValue={props.counter.currentValue} maxValue={props.counter.maxValue} incrementCurrentValue={props.incrementCurrentValue} btnClassName="controlButton counterIncrement" title="inc"></ControlButton>
-                <ControlButton currentValue={props.counter.currentValue} resetCurrentValue={props.resetCurrentValue} btnClassName="controlButton counterReset" title="reset"></ControlButton>
+                <ControlButton currentValue={props.currentValue}
+                               maxValue={props.maxValue}
+                               startValue={props.startValue}
+                               incrementCurrentValue={props.incrementCurrentValue}
+                               btnClassName="controlButton counterIncrement"
+                               title="inc"
+                               error={props.error}></ControlButton>
+                <ControlButton currentValue={props.currentValue}
+                               maxValue={props.maxValue}
+                               startValue={props.startValue}
+                               resetCurrentValue={props.resetCurrentValue}
+                               btnClassName="controlButton counterReset"
+                               title="reset"
+                               error={props.error}></ControlButton>
             </div>
         </div>
     );

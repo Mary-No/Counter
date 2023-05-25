@@ -2,7 +2,7 @@
 :root {
   --bg-color: #0c3234;
   --main-color: #1b9f78;
-  --error-color: #a12e2e;
+  --error-color: rgb(161, 46, 46);
   --disabled-btn-color: #548676;
   --hover-btn-color: #58f1bc;
 }

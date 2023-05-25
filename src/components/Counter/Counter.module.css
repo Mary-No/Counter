@@ -28,5 +28,6 @@
     margin: 30px auto 10px auto;
 }
 .error{
+    font-size: 36px;
     color: var(--error-color);
 }

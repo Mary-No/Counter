@@ -19,7 +19,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
 }
+.controlButton:disabled{
+    background-color: var(--disabled-btn-color);
+}
+
 .controlButton:hover{
     background-color: var(--hover-btn-color);
+}
+.controlButton:disabled:hover{
+    background-color: var(--disabled-btn-color);
 }
