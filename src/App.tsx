@@ -15,7 +15,7 @@ function App() {
 
     let [error, setError] = useState(false);
 
-    function errorHandler(flag:boolean) {
+    function errorHandler(flag: boolean) {
         setError(flag)
     }
 

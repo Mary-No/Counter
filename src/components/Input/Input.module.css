@@ -19,9 +19,9 @@
     color: var(--bg-color);
 
 }
-.inputErrormin{
+.inputError{
     background-color: rgb(255, 82, 82);
 }
-.inputErrormax{
+.s.globalError{
     background-color: rgb(255, 82, 82);
 }

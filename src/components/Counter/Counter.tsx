@@ -17,12 +17,8 @@ function Counter(props: CounterType) {
 
     return (
         <div className={s.Counter}>
-
-            {/*className={props.error ? s.error + ' ' + s.counterValue : s.counterValue}*/}
-            <div className={props.error ?  s.error + ' ' + s.counterValue : s.counterValue}>
-
-                {props.error ? 'Incorrect value!': props.currentValue}
-                {/*{props.error ? props.error : props.currentValue}*/}
+            <div className={props.error ? s.error + ' ' + s.counterValue : props.currentValue===props.maxValue? s.limit+ ' ' + s.counterValue: s.counterValue}>
+                {props.error ? 'Incorrect value!' : props.currentValue}
             </div>
 
             <div className={s.controlButtons}>

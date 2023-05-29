@@ -10,30 +10,35 @@ type SettingsType = {
     maxValue: number
     setLimitValues: (min: number, max: number) => void
     changeInputValue: (type: string, value: number) => void
-    errorHandler: (flag:boolean) => void
+    errorHandler: (flag: boolean) => void
     error: boolean
 }
 
 function Settings(props: SettingsType) {
+
+    let globalError = false
+    if(props.startValue >= props.maxValue){
+        props.errorHandler(true);
+        globalError = true;
+    }
 
     return (
         <div className={s.Settings}>
             <div className={s.container}>
                 <Input typeValue="min"
                        changeInputValue={props.changeInputValue}
-                       value={props.startValue}
+                       minValue={props.startValue}
                        title="start value:"
-                       error={props.error}
                        errorHandler={props.errorHandler}
+                       globalError={globalError}
 
                 />
                 <Input typeValue="max"
                        changeInputValue={props.changeInputValue}
-                       value={props.maxValue}
+                       maxValue={props.maxValue}
                        title="max value:"
-                       error={props.error}
                        errorHandler={props.errorHandler}
-
+                       globalError={globalError}
                 />
 
             </div>

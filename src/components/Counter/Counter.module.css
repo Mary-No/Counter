@@ -31,3 +31,6 @@
     font-size: 36px;
     color: var(--error-color);
 }
+.limit{
+    color: var(--error-color);
+}
